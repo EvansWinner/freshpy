@@ -1,11 +1,11 @@
-# Freshpy Introduction
+# Introduction
 
 Freshpy is a simple and tiny python read-only client
-for the Fresh Service ticket system. It's purpose is
-to allow you to check your current queue of tickets
-or any of the other "views" you have defined in 
-Fresh Service quickly and easily from the command
-line (bash or cmd.exe or whatever you are using).
+for the Fresh Service ticket system licensed under the
+GPLv2. It's purpose is to allow you to check your current
+queue of tickets or any of the other "views" you have
+defined in Fresh Service quickly and easily from the
+command line (bash or cmd.exe or whatever you are using).
 
 It also allows you to quickly get some information
 about individual tickets.
@@ -57,14 +57,16 @@ My way of doing this is something like this in .bashrc or
 organization that allows you to use Linux or similar:
 
 ```
-alias tt="python3 ~/path/to/freshpy.py ..... FIXME
+alias tt="python3 ~/path/to/freshpy.py "
 ```
 
-(My alias syntax skillz are rusty. It's something like that.)
-
-Or if you're sad like me, Google for the registry hack
-that allows you to have something like an rc file for
-cmd.exe, and in that file, do:
+Or if you're sad and stuck on Windows like me, Google
+for the registry hack that allows you to have something
+like an rc file for cmd.exe. This is to say, add a Registry DWORD
+value called "AutoRun" to 
+HKEY_CURRENT_USER\SOFTWARE\Microsoft\Command Processor called 
+and set it to the path to a .bat file with anything in
+it you want, including something like this:
 
 ```
 doskey tt=python %HOME%\path\to\freshpy.py $* ^| more
@@ -111,3 +113,13 @@ that's lots of fun. Mostly. Patches welcome and all that. Did I
 already say that?
 
 Peace out, man.
+
+# TODO
+
+ - Unit tests, because I don't know; why not?
+ - Allow conf file to be ~/.freshpy or
+   ~/config/freshpy/freshpy.conf or something like that
+ - Generalize the output routines so that you can output
+   to .csv or whatever else.
+ - Read more from the Ticket JSON response and make output
+   more customizable
