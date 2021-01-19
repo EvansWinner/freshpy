@@ -10,19 +10,19 @@
 # programs
 
 import sys
+import os
 from typing import List
-import subprocess
 
 files: List[str] = ["freshpy.py", "freshpyconf.py", "tests.py"]
 
 for file_name in files:
-    subprocess.call("radon cc " + file_name + " -nc")
-    subprocess.call("radon mi " + file_name + " -nc")
-    subprocess.call("pylint " + file_name)
-    subprocess.call("mypy " + file_name)
-    subprocess.call("pycodestyle " + file_name)
-    subprocess.call("pydocstyle " + file_name)
-    subprocess.call("pyflakes " + file_name)
+    os.system("radon cc " + file_name + " -nc")
+    os.system("radon mi " + file_name + " -nc")
+    os.system("pylint " + file_name)
+    os.system("mypy " + file_name)
+    os.system("pycodestyle " + file_name)
+    os.system("pydocstyle " + file_name)
+    os.system("pyflakes " + file_name)
 
 
 def test_abort_fatal(msg: str) -> None:
